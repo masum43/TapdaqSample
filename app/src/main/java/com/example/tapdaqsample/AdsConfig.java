@@ -21,10 +21,10 @@ import java.util.Locale;
 public class AdsConfig {
 
 
-    private String mAppId = "6149ebeb86c31c4e07c10d68";
-    private String mClientKey = "9d5df5b6-05ff-4f0f-9d78-33f377d74496";
+    private String mAppId = "614ca86608fe6c2d735d6e29";
+    private String mClientKey = "0e0676fb-bcea-44fb-91de-6f568491b390";
     public static String getPlacementTag() {
-        return "default";
+        return "admob-fan-unity";
     }
 
     public static boolean isReady = false;

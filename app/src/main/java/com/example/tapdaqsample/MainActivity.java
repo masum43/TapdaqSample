@@ -37,16 +37,12 @@ public class MainActivity extends AppCompatActivity {
         TMAdSize size;
         mBannerAd = findViewById(R.id.banner_ad);
         //you can change banner size Standard, Large, Full
-        size = TMBannerAdSizes.get("Full");
+        size = TMBannerAdSizes.get("Standard");
         mBannerAd.load(this, size, new AdsConfig.AdListener(TMAdType.BANNER));
 
         //native
         TDMediatedNativeAdOptions options = new TDMediatedNativeAdOptions(); //optional param
         Tapdaq.getInstance().loadMediatedNativeAd(MainActivity.this, getPlacementTag(), options, new AdListener());
-
-        NativeAdLayout adlayout = findViewById(R.id.native_ad);
-        adlayout.populate(mAd.get(getPlacementTag()));
-        mAd.remove(getPlacementTag());
     }
 
     private void updateView() {
@@ -64,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
             super.didLoad(ad);
             mAd.put(getPlacementTag(), ad);
             updateView();
+            NativeAdLayout adlayout = findViewById(R.id.native_ad);
+            adlayout.populate(mAd.get(getPlacementTag()));
+            mAd.remove(getPlacementTag());
             //Log.i(TAG, "didLoad");
             //mLogListAdapter.insert("didLoad", 0);
         }
